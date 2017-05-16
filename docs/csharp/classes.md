@@ -18,23 +18,23 @@ ms.lasthandoff: 03/13/2017
 ---
 
 # <a name="classes"></a>類別
-「類別」**是一種建構，可讓您將其他類型、方法和事件的變數群組在一起，以建立您自己的自訂類型。 類別就像藍圖。 它會定義類型的資料和行為。 如果類別未宣告為 static，則用戶端程式碼可以使用它，方法是建立指派給變數的「物件」**或「執行個體」**。 除非變數的所有參考都超出範圍，否則變數會保留在記憶體中。 此時，CLR 會將它標記為適合進行記憶體回收。 如果類別宣告為 [static](https://msdn.microsoft.com/library/98f28cdx.aspx)，則記憶體中只會有一個複本，而且用戶端程式碼只能透過類別本身存取它，而非「執行個體變數」**。 如需詳細資訊，請參閱[靜態類別和靜態類別成員](https://msdn.microsoft.com/library/79b3xss3.aspx)。  
+「類別」是一種建構，可讓您將其他類型、方法和事件的變數群組在一起，以建立您自己的自訂類型。 類別就像藍圖。 它會定義類型的資料和行為。 如果類別未宣告為 static，則用戶端程式碼可以使用它，方法是建立指派給變數的「物件」或「執行個體」。 除非變數的所有參考都超出範圍，否則變數會保留在記憶體中。 此時，CLR 會將它標記為適合進行記憶體回收。 如果類別宣告為 [static](https://msdn.microsoft.com/library/98f28cdx.aspx)，則記憶體中只會有一個複本，而且用戶端程式碼只能透過類別本身存取它，而非「執行個體變數」。 如需詳細資訊，請參閱[靜態類別和靜態類別成員](https://msdn.microsoft.com/library/79b3xss3.aspx)。  
 
 ## <a name="reference-types"></a>參考型別  
-定義為 [class](https://msdn.microsoft.com/library/0b0thckt.aspx) 的類型即為「參考型別」**。 在執行階段，當您宣告參考型別的變數時，該變數可包含值 [null](https://msdn.microsoft.com/library/edakx9da.aspx)，直到您使用 [new](https://msdn.microsoft.com/library/51y09td4.aspx) 運算子明確地建立物件的執行個體，或為它指派在他處使用 [new](https://msdn.microsoft.com/library/51y09td4.aspx) 建立的物件為止，如下列範例所示︰  
+定義為 [class](https://msdn.microsoft.com/library/0b0thckt.aspx) 的類型即為「參考型別」。 在執行階段，當您宣告參考型別的變數時，該變數可包含值 [null](https://msdn.microsoft.com/library/edakx9da.aspx)，直到您使用 [new](https://msdn.microsoft.com/library/51y09td4.aspx) 運算子明確地建立物件的執行個體，或為它指派在他處使用 [new](https://msdn.microsoft.com/library/51y09td4.aspx) 建立的物件為止，如下列範例所示︰  
 
 [!code-csharp[參考型別](../../samples/snippets/csharp/concepts/classes/reference-type.cs)]
   
-建立物件時，會在 Managed 堆積上配置記憶體，而變數只會保留物件位置的參考。 配置以及由 CLR 的自動記憶體管理功能 (也就是「記憶體回收」**) 回收 Managed 堆積上的類型時，都需要額外負荷。 不過，記憶體回收也已獲得高度最佳化，因此在大部分情況下並不會產生效能問題。 如需記憶體回收的詳細資訊，請參閱[自動記憶體管理和記憶體回收](../standard/garbagecollection/gc.md)。  
+建立物件時，會在 Managed 堆積上配置記憶體，而變數只會保留物件位置的參考。 配置以及由 CLR 的自動記憶體管理功能 (也就是「記憶體回收」) 回收 Managed 堆積上的類型時，都需要額外負荷。 不過，記憶體回收也已獲得高度最佳化，因此在大部分情況下並不會產生效能問題。 如需記憶體回收的詳細資訊，請參閱[自動記憶體管理和記憶體回收](../standard/garbagecollection/gc.md)。  
   
-參考型別完全支援「繼承」**，這是物件導向程式設計的基礎特性。 當您建立類別時，可以繼承自任何其他未定義為 [sealed](https://msdn.microsoft.com/library/88c54tsw.aspx) 的介面或類別，而其他類別可以繼承自您的類別並覆寫您的虛擬方法。 如需詳細資訊，請參閱[繼承](https://msdn.microsoft.com/library/ms173149.aspx)。
+參考型別完全支援「繼承」，這是物件導向程式設計的基礎特性。 當您建立類別時，可以繼承自任何其他未定義為 [sealed](https://msdn.microsoft.com/library/88c54tsw.aspx) 的介面或類別，而其他類別可以繼承自您的類別並覆寫您的虛擬方法。 如需詳細資訊，請參閱[繼承](https://msdn.microsoft.com/library/ms173149.aspx)。
 
 ## <a name="declaring-classes"></a>宣告類別  
 使用 [class](https://msdn.microsoft.com/library/0b0thckt.aspx) 關鍵字宣告類別，如下列範例所示︰  
   
 [!code-csharp[宣告類別](../../samples/snippets/csharp/concepts/classes/declaring-classes.cs)]  
   
-**class** 關鍵字的前面會加上存取修飾詞。 因為在此情況下使用 [public](https://msdn.microsoft.com/library/yzh058ae.aspx)，所以所有人都可以從這個類別建立物件。 類別的名稱遵循 **class** 關鍵字。 定義的其餘部分是定義行為和資料的類別主體。 類別上的欄位、屬性、方法和事件統稱為「類別成員」**。  
+**class** 關鍵字的前面會加上存取修飾詞。 因為在此情況下使用 [public](https://msdn.microsoft.com/library/yzh058ae.aspx)，所以所有人都可以從這個類別建立物件。 類別的名稱遵循 **class** 關鍵字。 定義的其餘部分是定義行為和資料的類別主體。 類別上的欄位、屬性、方法和事件統稱為「類別成員」。  
   
 ## <a name="creating-objects"></a>建立物件  
 類別會定義一種類型的物件，但不是物件本身。 物件是根據類別的具體實體，而且有時稱為類別的執行個體。  
@@ -54,7 +54,7 @@ ms.lasthandoff: 03/13/2017
 這個程式碼會建立同時參照相同物件的兩個物件參考。 因此，任何透過 `object3` 進行的物件變更都會反映在後續使用 `object4` 時。 因為以傳址方式參照根據類別的物件，所以類別稱為參考型別。  
   
 ## <a name="class-inheritance"></a>類別繼承  
-使用「衍生」**可完成繼承，這表示使用從中繼承資料和行為的「基底類別」**來宣告類別。 附加冒號以及接著衍生類別名稱後面的基底類別名稱，以指定基底類別，與下面類似：  
+使用「衍生」可完成繼承，這表示使用從中繼承資料和行為的「基底類別」來宣告類別。 附加冒號以及接著衍生類別名稱後面的基底類別名稱，以指定基底類別，與下面類似：  
   
 [!code-csharp[繼承](../../samples/snippets/csharp/concepts/classes/inheritance.cs)]  
   
