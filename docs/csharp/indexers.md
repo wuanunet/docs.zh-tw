@@ -19,7 +19,7 @@ ms.lasthandoff: 03/13/2017
 
 # <a name="indexers"></a>索引子
 
-「索引子」**類似於屬性。 從許多方面來看，索引子是建立在與[屬性](properties.md)相同的語言功能之上。 索引子可啟用「索引」**屬性，也就是使用一或多個引數參考的屬性。 這些引數可對某些數值集合進行索引。
+*「索引子」*類似於屬性。 從許多方面來看，索引子是建立在與[屬性](properties.md)相同的語言功能之上。 索引子可啟用*「索引」*屬性，也就是使用一或多個引數參考的屬性。 這些引數可對某些數值集合進行索引。
 
 ## <a name="indexer-syntax"></a>索引子語法
 
@@ -43,16 +43,16 @@ public int this[string key]
 在第一個範例中，您可以看到屬性語法和索引子語法之間的關聯性。 這點相似性會出現在索引子的大部分語法規則中。 索引子可以有任何有效的存取修飾詞 (public、protected internal、protected、internal 或 private)。 它們可能是密封、虛擬或抽象的。 如同屬性，您可以為索引子中 get 和 set 存取子，指定不同的存取修飾詞。
 您也可以指定唯讀索引子 (藉由省略 set 存取子) 或唯寫索引子 (藉由省略 get 存取子)。
 
-您可以將使用屬性時所學到的幾乎所有知識應用到索引子。 這項規則的唯一例外是「自動實作屬性」**。 編譯器不一定可為索引子產生正確的儲存體。
+您可以將使用屬性時所學到的幾乎所有知識應用到索引子。 這項規則的唯一例外是*「自動實作屬性」*。 編譯器不一定可為索引子產生正確的儲存體。
 
 索引子和屬性的不同之處，在於具有可參考一組項目中某個項目的引數。 您可以在一個類型上定義多個索引子，但前提是每個索引子的引數清單必須是唯一的。 讓我們探索幾個不同的案例，在這些案例中，您可以在類別定義中使用一或多個索引子。 
 
 ## <a name="scenarios"></a>案例
 
-當您的類型 API 建立一些集合的模型，以供您在其中定義該集合的引數時，您會在此類型中定義「索引子」**。 您的索引子不一定會直接對應至屬於 .NET Core Framework 的集合類型。 您的類型除了建立集合的模型之外，可能還有其他職責。
+當您的類型 API 建立一些集合的模型，以供您在其中定義該集合的引數時，您會在此類型中定義*「索引子」*。 您的索引子不一定會直接對應至屬於 .NET Core Framework 的集合類型。 您的類型除了建立集合的模型之外，可能還有其他職責。
 索引子可讓您提供符合類型抽象概念的 API，而不會公開有關該抽象概念的值如何儲存或計算的內部詳細資料。
 
-讓我們逐步解說使用「索引子」**的一些常見案例。
+讓我們逐步解說使用*「索引子」*的一些常見案例。
 您可以在 [GitHub 儲存機制](https://github.com/dotnet/core-docs)的核心文件中，存取所有範例的程式碼。 或者，您可以直接存取[範例資料夾](https://github.com/dotnet/docs/tree/master/samples/csharp/indexers)。
 
 ### <a name="arrays-and-vectors"></a>陣列和向量
@@ -326,7 +326,7 @@ using DateMeasurements = System.Collections.Generic.Dictionary<System.DateTime, 
 using CityDataMeasurements = System.Collections.Generic.Dictionary<string, System.Collections.Generic.Dictionary<System.DateTime, IndexersSamples.Common.Measurements>>;
 ```
 
-會為建構的泛型型別建立「別名」**。 這些陳述式可讓程式碼稍後使用更具描述性的 `DateMeasurements` 和 `CityDateMeasurements` 名稱，而不是 `Dictionary<DateTime, Measurements>` 和 `Dictionary<string, Dictionary<DateTime, Measurements> >` 的泛型建構。 此建構確實需要在 `=` 符號右側使用完整的類型名稱。
+會為建構的泛型型別建立*「別名」*。 這些陳述式可讓程式碼稍後使用更具描述性的 `DateMeasurements` 和 `CityDateMeasurements` 名稱，而不是 `Dictionary<DateTime, Measurements>` 和 `Dictionary<string, Dictionary<DateTime, Measurements> >` 的泛型建構。 此建構確實需要在 `=` 符號右側使用完整的類型名稱。
 
 第二個方法是移除用來對集合進行索引之任何 `DateTime` 物件的時間部分。 .NET Framework 不包含只有日期的類型。
 開發人員使用 `DateTime` 類型，但使用 `Date` 屬性來確保該日期的任何 `DateTime` 物件都相等。
